@@ -1,0 +1,23 @@
+{
+  "name": "namaste-dev",
+  "version": "1.0.0",
+  "description": "this is namaste react course notes",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyadharshini149/Namaste_dev.git"
+  },
+  "keywords": [],
+  "author": "priya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priyadharshini149/Namaste_dev/issues"
+  },
+  "homepage": "https://github.com/priyadharshini149/Namaste_dev#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
