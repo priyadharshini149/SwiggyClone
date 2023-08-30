@@ -1,7 +1,7 @@
 {
   "name": "namaste-dev",
   "version": "1.0.0",
-  "description": "this is namaste react course notes",
+  "description": "this is react namaste course notes",
   "main": "App.js",
   "scripts": {
     "test": "jest"
@@ -10,8 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/priyadharshini149/Namaste_dev.git"
   },
-  "keywords": [],
-  "author": "priya",
+  "author": "Priya",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/priyadharshini149/Namaste_dev/issues"
