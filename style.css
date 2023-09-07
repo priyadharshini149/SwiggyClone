@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
 }
+
+/* Header */
 .header{
     display: flex;
     justify-content: space-between;
@@ -27,79 +29,40 @@
     margin: 5px 25px;
     font-size: 17px;
 }
-.body{
-    padding:  2rem;
-    margin: auto;
-}
 
-.body a{
-   text-decoration: none;
-   
-}
-
-.resto-container{
-display: flex;
-flex-wrap:wrap ;
-margin: auto;
-justify-content: center;
-padding-top: 20px;
-}
-.resto-card{
-    width: 280px;
-    background-color: rgb(253, 253, 253);
-    border-radius: 10px;
-    margin: 1rem;
+.log-btn{
     padding: 0.5rem;
-    
-    transition:all 0.25s ease-in-out;
+    background-color: transparent;
+    border: none;
+    border:1px solid rgb(192, 192, 192);
+    border-radius: 20px;
+    background-image: linear-gradient(rgb(255, 185, 56),rgb(254, 108, 108));
+    color: white;
 }
-.resto-card:hover{
-    position: relative;
-    transform: scaleY(94%);
-    cursor: pointer;
-}
-.resto-card > h4 {
-    padding: 10px 0px;
-    color: gray;
-    font-size: 14px;
 
-}
-.resto-card > h3 {
-    padding: 10px 0px;
-}
+/* Search Bar */
 .search {
-text-align: center;
+    text-align: center;
+        
+    }
+    .search >input{
+        margin: auto;
+        justify-content: center;
+        padding: 15px;
+        width: 50%;
+        border: none;
+        border:1px solid rgb(192, 192, 192);
+        border-radius: 5px;
     
-}
-.search > form >input{
-    margin: auto;
-    justify-content: center;
-    padding: 15px;
-    width: 50%;
+    }
+.search > .search-btn{
+    padding: 1rem;
+    background-color: transparent;
     border: none;
     border:1px solid rgb(192, 192, 192);
     border-radius: 5px;
-
-}
-.food-img{
-    width: 100%;
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-    border-radius: 20px;
-    height: 200px;
-}
-.card-review {
-    justify-content: space-between;
-}
-.card-review >h4{
-    color: gray;
-}
-.card-review span{
-    background-color: rgb(39, 125, 39);
+    background-image: linear-gradient(rgb(255, 185, 56),rgb(254, 108, 108));
     color: white;
-    padding: 0 5px;
-    font-size: 15px;
-    border-radius: 2px;
-
 }
 
 
@@ -125,4 +88,130 @@ text-align: center;
     border:1px solid rgb(192, 192, 192);
 
     border-radius: 10px;
+}
+
+
+
+
+ /* Body    */
+.body{
+    padding:  2rem;
+    margin: auto;
+}
+
+.body a{
+   text-decoration: none;
+   
+}
+
+/* Card container */
+.resto-container{
+display: flex;
+flex-wrap:wrap ;
+margin: auto;
+justify-content: center;
+padding-top: 20px;
+}
+
+/* Resto Card */
+.resto-card{
+    width: 280px;
+    background-color: rgb(253, 253, 253);
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 0.5rem;
+    
+    transition:all 0.25s ease-in-out;
+}
+.resto-card:hover{
+    position: relative;
+    transform: scaleY(94%);
+    cursor: pointer;
+}
+.resto-card > h4 {
+    padding: 10px 0px;
+    color: gray;
+    font-size: 14px;
+
+}
+.resto-card > h3 {
+    padding: 10px 0px;
+}
+
+
+/* Content of Card */
+.food-img{
+    width: 100%;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    border-radius: 20px;
+    height: 200px;
+}
+.card-review {
+    justify-content: space-between;
+}
+.card-review >h4{
+    color: gray;
+}
+.card-review span{
+    background-color: rgb(39, 125, 39);
+    color: white;
+    padding: 0 5px;
+    font-size: 15px;
+    border-radius: 2px;
+
+}
+
+
+
+
+
+
+
+
+/* Shimmer */
+.shimmer{
+    margin: auto;
+    margin-top: 40px;
+}
+.search-shimmer-card{
+    margin: auto;
+    justify-content: center;
+    padding: 20px;
+    width: 50%;
+    border: none;
+    border-radius: 5px;
+    
+    background-color: rgb(241, 240, 240);
+}
+.filter-shimmer-card{
+   text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.filter-shimmer-card div{
+    height: 50px;
+    width: 100px;
+    margin: 1rem;
+    border-radius: 10px;
+    background-color: rgb(241, 240, 240);
+}
+.shimmer-container{
+    display: flex;
+flex-wrap:wrap ;
+margin: auto;
+justify-content: center;
+padding-top: 20px;
+
+}
+.shimmer-card{
+    width: 280px;
+   
+    border-radius: 20px;
+    height: 200px;
+    background-color: rgb(241, 240, 240);
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 0.5rem;
 }
