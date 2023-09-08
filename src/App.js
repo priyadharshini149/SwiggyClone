@@ -1,7 +1,11 @@
-import React from "react";
+import React, { Children } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
+import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
+import About from "./components/About";
+import ErrorPage from "./components/ErrorPage";
+import Contact from "./components/Contact";
 
 //##################################################################################################################
 
@@ -26,16 +30,42 @@ const App = () => {
     return(
         <div className="app">
             <Header/>
-            <Body/>
+            <Outlet/>
         </div>
     );
 };
 
+
+const appRouter=createBrowserRouter([
+    {
+        path:"/",
+        element:<App/>,
+        errorElement:<ErrorPage/>,
+        children:[
+            {
+                path:"/",
+                element:<Body/>
+            },
+            {
+                path:"/about",
+                element:<About/>
+            },
+            {
+                path:"/contact",
+                element:<Contact/>
+            }
+        ]
+    }
+]);
+
 const root=ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App/>);
+// root.render(<App/>);
+root.render(<RouterProvider router={appRouter}/>)
 
 
+// Routing- client side Routing
 
+//         - server side routing
 
 //###################################################################################################################
 //const heading=React.createElement("h1",{id:"header_1"},"Hello World with react"); //created h1 tag
