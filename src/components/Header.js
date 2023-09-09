@@ -11,9 +11,9 @@ const Header = () =>{
             </div>
             <div className="nav-items">
                 <ul>
-                    <li><Link to=" ">Home</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/contact">Contact Us</Link></li>
+                    <li><Link to=" " className="header-link">Home</Link></li>
+                    <li><Link to="/about" className="header-link">About</Link></li>
+                    <li><Link to="/contact" className="header-link">Contact Us</Link></li>
                     <li>Cart</li>
                     <button className="log-btn" onClick={()=>{
                         log==="LogIn"?
