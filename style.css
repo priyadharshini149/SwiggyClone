@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Nunito+Sans:opsz@6..12&family=Poppins:wght@200;400&family=Prompt:wght@100&family=Rubik+Puddles&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -187,30 +188,32 @@ padding-top: 20px;
 .resInfo-header{
     display: flex;
     justify-content: space-between;
-    color: rgb(41, 41, 41);
+    color: rgb(57, 57, 57);
     margin-top: 1.5rem;
 }
 
 .resInfo-header  h2{
-    font-size: 20px;
-    margin: 0.5rem 0rem;
+    font-size: 19px;
+    margin: 1rem 0rem;
     font-family: sans-serif;
 }
 .resInfo-header h3{
     font-weight:lighter;
     margin: 0.5rem 0rem;
-    color: gray;
-    font-size: 16px;
+    color: rgb(164, 164, 164);
+    font-size: 13px;
+    font-family: sans-serif;
 }
 .resInfo-extra{
     display: flex;
    
 }
 .resInfo-extra h4{
-    margin: 0.5rem 1rem 0rem 0rem;
+    margin: 1rem 2rem 0rem 0rem;
     font-family:sans-serif;
     font-size: 14px;
-    color: rgb(41,41,41);
+     color: rgb(75, 75, 75);
+     font-weight: 800;
 }
 .resInfo-header span{
     /* background-color: rgb(39, 125, 39); */
@@ -245,12 +248,19 @@ hr{
 .resMenu-Category{
     margin: 1rem 0rem;
 }
+.resMenu-Category:hover{
+    cursor: pointer;
+}
+.resMenu-SubCategory:hover{
+    cursor: pointer;
+}
 
 .cat-header {
     padding: 1rem 1rem 1rem 0rem;
     display: flex;
    justify-content: space-between;
 }
+
 
 .subCat-header {
     padding: 1rem 1rem 1rem 0rem;
@@ -279,7 +289,7 @@ hr{
     justify-content: space-between;
     color: rgb(41, 41, 41);
     margin-top: 1.5rem;
-    font-family: sans-serif;
+    font-family:sans-serif;
     padding: 0rem 0rem 1rem 0rem;
     border-bottom: 1px solid rgb(199, 198, 198);
 }
@@ -317,17 +327,17 @@ hr{
     
 }
 .item-details h4{
-    color: rgb(167, 167, 167);
-    font-weight: lighter;
+    color: rgb(154, 154, 154);
+    font-weight: 100;
     margin: 0.5rem 0rem;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 0.5px;
     line-height: 20px;
 }
 .item-details h3{
     font-size: 15px;
     font-weight: 700;
-    font-family: sans-serif
+    font-family:sans-serif;
 
 }
 

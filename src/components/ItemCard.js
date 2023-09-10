@@ -7,7 +7,7 @@ const ItemCard = (props) => {
     <div className='item-card'>
             <div className='item-details'>
             <h3 >{name}</h3>
-            <h4 style={{color:" rgb(41, 41, 41)",fontWeight:"bolder"}}>₹{price/100}</h4>
+            {price && (<h4 style={{color:" rgb(41, 41, 41)",fontWeight:"bolder"}}>₹{price/100}</h4>)}
             <h4>{description}</h4>
             </div>
             <div className='item-img'>

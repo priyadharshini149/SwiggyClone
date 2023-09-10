@@ -2,10 +2,13 @@ import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 import ItemCard from "./ItemCard";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown,faClock,faStar } from '@fortawesome/free-solid-svg-icons';
 import {Collapse} from 'react-collapse';
+import { useParams } from 'react-router-dom';
 
 const RestoMenu = () => {
+    const {id}=useParams();
+    console.log(id);
     const [resInfo,setResInfo]=useState(null);
     
     const [categoryCollapse,setCatCollapse]=useState({});
@@ -16,7 +19,7 @@ const RestoMenu = () => {
     },[]);
     
     const fetchData= async() => {
-         const data= await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=11.0261194&lng=77.0191128&restaurantId=245456&catalog_qa=undefined&submitAction=ENTER");
+         const data= await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=11.0261194&lng=77.0191128&restaurantId="+id+"&catalog_qa=undefined&submitAction=ENTER");
          const json=await data.json();
          console.log(json.data.cards[0]?.card?.card?.info?.name);
          setResInfo(json.data);
@@ -59,14 +62,14 @@ const RestoMenu = () => {
                 </div>
                 <div className="resInfo-rating">
                     
-                    <span style={{fontWeight:"bolder",fontSize:"14px"}}>{avgRating} stars</span>
+                    <span style={{fontWeight:"800",fontSize:"14px"}}><FontAwesomeIcon icon={faStar}/>  {avgRating}</span>
                     <hr ></hr>
                     <span style={{color:"black"}}>{totalRatingsString}</span>
                 </div>
             </div>
             <hr></hr>
             <div className="resInfo-extra">
-                <h4>{deliveryTime} MINS</h4>
+                <h4><FontAwesomeIcon icon={faClock} /> {deliveryTime} MINS</h4>
                 <h4>{costForTwoMessage}</h4>
             </div>
             
@@ -79,18 +82,12 @@ const RestoMenu = () => {
                     (
                         <div key={index} >
                             { 
-                                cat.card.card.title && (
+                                cat.card.card.title && cat.card.card.itemCards &&(
                                     <div className="resMenu-Category" style={{borderBottom: "20px solid rgb(241, 241, 241)"}}>
                                         { cat.card.card.itemCards &&
-                                        (<div className="cat-header">
-                                            
-                                               
-                                                
-
-                                                    <h3>{cat.card.card.title} ({cat.card.card.itemCards.length})</h3> 
-                                                     <FontAwesomeIcon icon={faAngleDown} style={{color:"gray"}} onClick={()=>toggleCatCollapse(index)}/>
-                                                
-                                            
+                                        (<div className="cat-header"  onClick={()=>toggleCatCollapse(index)}>
+                                                    <h3 style={{fontSize:"17px"}}>{cat.card.card.title} ({cat.card.card.itemCards.length})</h3> 
+                                                     <FontAwesomeIcon icon={faAngleDown} style={{color:"gray"}}/>
                                         </div>)
                                                 }
 
@@ -112,12 +109,10 @@ const RestoMenu = () => {
                                                 {
                                                 cat.card.card.categories.map((item,index)=>(
                                                        
-                                                    <div key={index} className="resMenu-SubCategory" >
+                                                    <div key={index} className="resMenu-SubCategory" onClick={()=>toggleSubCatCollapse(index)}>
                                                         <div className="subCat-header">
                                                         <h3 style={{fontSize:"17px"}}>{item.title} ({item.itemCards.length})</h3>
-                                                        <FontAwesomeIcon icon={faAngleDown} style={{color:"gray"}}
-                                                        onClick={()=>toggleSubCatCollapse(index)}
-                                                        />
+                                                        <FontAwesomeIcon icon={faAngleDown} style={{color:"gray"}}/>
                                                         </div>
     
                                                         <Collapse isOpened={subCategoryCollapse[index]} className="collapse">
