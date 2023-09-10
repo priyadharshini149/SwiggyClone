@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown,faClock,faStar } from '@fortawesome/free-solid-svg-icons';
 import {Collapse} from 'react-collapse';
 import { useParams } from 'react-router-dom';
+import { API_URL } from "../utils/constants";
 
 const RestoMenu = () => {
     const {id}=useParams();
@@ -19,7 +20,7 @@ const RestoMenu = () => {
     },[]);
     
     const fetchData= async() => {
-         const data= await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=11.0261194&lng=77.0191128&restaurantId="+id+"&catalog_qa=undefined&submitAction=ENTER");
+         const data= await fetch(API_URL+id);
          const json=await data.json();
          console.log(json.data.cards[0]?.card?.card?.info?.name);
          setResInfo(json.data);

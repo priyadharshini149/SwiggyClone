@@ -1,4 +1,5 @@
 import React from 'react'
+import { ITEM_IMG } from '../utils/constants'
 
 const ItemCard = (props) => {
     const {data}=props
@@ -12,7 +13,7 @@ const ItemCard = (props) => {
             </div>
             <div className='item-img'>
             <button className='item-button'>ADD</button>
-            {imageId && (<img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"+imageId}></img>)}
+            {imageId && (<img src={ITEM_IMG+imageId}></img>)}
             
             </div>
     </div>
