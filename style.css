@@ -13,9 +13,10 @@
     padding: 2px;
 }
 .logo {
-    width: 5rem;
+    margin-top: 0.25rem;
+    width: 6rem;
     position: relative;
-    left: 2rem;
+    left: 10rem;
 }
 
 .nav-items > ul {
@@ -40,6 +41,7 @@
 
 .log-btn{
     padding: 0.5rem;
+
     background-color: transparent;
     border: none;
     border:1px solid rgb(192, 192, 192);
@@ -117,20 +119,21 @@
 display: flex;
 flex-wrap:wrap ;
 margin: auto;
-justify-content: center;
+justify-content: space-evenly;
 padding-top: 20px;
+width: 85%;
 }
 
 /* Resto Card */
 .resto-card{
-    width: 280px;
+    width: 250px;
     background-color: rgb(253, 253, 253);
     border-radius: 10px;
     margin: 1rem;
     padding: 0.5rem;
     font-family:sans-serif;
     transition:all 0.25s ease-in-out;
-  color: rgb(41, 41, 41);;
+    color: rgb(41, 41, 41);;
 }
 .resto-card:hover{
     position: relative;
@@ -139,14 +142,17 @@ padding-top: 20px;
 }
 .resto-card > h3 {
     padding: 10px 0px;
-    font-size: 20px;
+    font-size: 18px;
     
 }
 .resto-card > h4 {
-    padding: 10px 0px;
+    padding: 10px 0px 0px 0px;
     color: gray;
     font-size: 14px;
-    font-weight: lighter;
+    line-height: 20px;
+    font-weight:200;
+    max-width: 90%;
+
 }
 
     
@@ -154,11 +160,29 @@ padding-top: 20px;
 
 
 /* Content of Card */
+.layer{
+    position: absolute;
+    width: inherit;
+    height: 180px;
+    background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0.107),rgba(136, 133, 133, 0.107),rgb(4, 4, 4));
+    border-radius: 20px;
+}
+.layer h4{
+    color: white;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: bolder;
+    position: absolute;
+    text-align: center;
+    bottom: 10px;
+    left: 2px;
+    right:10%
+}
 .food-img{
     width: 100%;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     border-radius: 20px;
-    height: 200px;
+    height: 180px;
 }
 .card-review {
     justify-content: space-between;
@@ -166,15 +190,16 @@ padding-top: 20px;
 .card-review >h4{
     color: gray;
     font-size: 14px;
+    letter-spacing: 2px;
     font-weight: lighter;
 }
 .card-review span{
     background-color: rgb(39, 125, 39);
     color: white;
-    padding: 2px 5px;
+    padding: 5px 6px;
     font-size: 14px;
     font-weight: lighter;
-    border-radius: 2px;
+    border-radius: 100px;
 
 }
 
@@ -342,7 +367,39 @@ hr{
 }
 
 
+/* banner */
 
+.offer-container{
+    margin: auto;
+    justify-content: center;
+    padding-top: 40px;
+    width: 80%;
+
+}
+.offer-container h3{
+font-size: 22px;
+font-family: sans-serif;
+font-weight: 800px;
+color: rgb(34, 34, 34);
+
+}
+.Offer-banner {
+    display: flex;
+    overflow: scroll;
+    display: flex;
+margin: auto;
+
+    
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.Offer-banner img{
+height: 250px;
+margin: 1rem 1rem 0rem 0rem;
+min-width: 90px;
+
+}
 
 
 
