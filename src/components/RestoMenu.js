@@ -1,9 +1,16 @@
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 import ItemCard from "./ItemCard";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import {Collapse} from 'react-collapse';
 
 const RestoMenu = () => {
     const [resInfo,setResInfo]=useState(null);
+    
+    const [categoryCollapse,setCatCollapse]=useState({});
+    const [subCategoryCollapse,setSubCatCollapse]=useState({});
+
     useEffect(()=>{
         fetchData();
     },[]);
@@ -27,16 +34,28 @@ const RestoMenu = () => {
 
     const {cards}=resInfo?.cards[2]?.groupedCard.cardGroupMap.REGULAR;
     console.log(cards);
-    
-    
-    
+   
+    const toggleCatCollapse=(categoryId)=>{
+        setCatCollapse((prevState)=>({
+            ...prevState,
+            [categoryId]:!prevState[categoryId] 
+        }))
+    }
+
+    const toggleSubCatCollapse=(categoryId)=>{
+        setSubCatCollapse((prevState)=>({
+            ...prevState,
+            [categoryId]:!prevState[categoryId]
+        }))
+    }
     return(
         <div className="resInfo-container">
+            
             <div className="resInfo-header">
                 <div>
-                    <h3>{name}</h3>
-                    <h4>{cuisines.join(", ")}</h4>
-                    <h4>{areaName}, {lastMileTravelString}</h4>
+                    <h2>{name}</h2>
+                    <h3>{cuisines.join(", ")}</h3>
+                    <h3>{areaName}, {lastMileTravelString}</h3>
                 </div>
                 <div className="resInfo-rating">
                     
@@ -52,16 +71,31 @@ const RestoMenu = () => {
             </div>
             
             <div className="resInfo-menu">
-               <div>
+                <h3 style={{fontFamily:"sans-serif",margin:"3rem 0rem 1rem 0rem"}}>Menu</h3>
+                <hr></hr>
+               <div >
                 {
                     cards.map((cat,index)=>
                     (
-                        <div key={index}>
+                        <div key={index} >
                             { 
                                 cat.card.card.title && (
-                                    <div style={{marginTop:"1rem"}}>
+                                    <div className="resMenu-Category" style={{borderBottom: "20px solid rgb(241, 241, 241)"}}>
+                                        { cat.card.card.itemCards &&
+                                        (<div className="cat-header">
+                                            
+                                               
+                                                
 
-                                       <h2>{cat.card.card.title}</h2> 
+                                                    <h3>{cat.card.card.title} ({cat.card.card.itemCards.length})</h3> 
+                                                     <FontAwesomeIcon icon={faAngleDown} style={{color:"gray"}} onClick={()=>toggleCatCollapse(index)}/>
+                                                
+                                            
+                                        </div>)
+                                                }
+
+                                      <Collapse isOpened={categoryCollapse[index]} className="collapse">
+                                      <div className="cat-body">
                                         {cat.card.card.itemCards && 
                                         (
                                             cat.card.card.itemCards.map((item,index)=>(
@@ -69,23 +103,39 @@ const RestoMenu = () => {
                                             )) 
                                         )
                                         }
-
+                                      </div>
+                                        </Collapse>
 
                                         {cat.card.card.categories && (
-                                            cat.card.card.categories.map((item,index)=>(
-                                                   
-                                                <div key={index} style={{marginTop:"1rem"}}  >
-                                                    <h2>{item.title}</h2>
-                                                    {
-                                                        item.itemCards.map((it,index)=>(
-                                                                <ItemCard key={index} data={it.card.info}/>
-                                                        ))
+                                            <div >
+                                                <h3 style={{margin:"1.5rem 0rem"}}>{cat.card.card.title}</h3>
+                                                {
+                                                cat.card.card.categories.map((item,index)=>(
+                                                       
+                                                    <div key={index} className="resMenu-SubCategory" >
+                                                        <div className="subCat-header">
+                                                        <h3 style={{fontSize:"17px"}}>{item.title} ({item.itemCards.length})</h3>
+                                                        <FontAwesomeIcon icon={faAngleDown} style={{color:"gray"}}
+                                                        onClick={()=>toggleSubCatCollapse(index)}
+                                                        />
+                                                        </div>
+    
+                                                        <Collapse isOpened={subCategoryCollapse[index]} className="collapse">
+                                                        <div className="subCat-body">
+                                                        {
+                                                            item.itemCards.map((it,index)=>(
+                                                                    <ItemCard key={index} data={it.card.info}/>
+                                                            ))
+                                                        }
+                                                       </div>
+                                                        </Collapse>
+                                                    </div>
+                                                ))
                                                     }
-
-                                                </div>
-                                            ))
+                                            </div>
                                         )
                                         }
+
                                         
                                     </div>
                                 )

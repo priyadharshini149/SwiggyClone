@@ -11,8 +11,9 @@ const ItemCard = (props) => {
             <h4>{description}</h4>
             </div>
             <div className='item-img'>
-            {imageId && (<img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"+imageId}></img>)}
             <button className='item-button'>ADD</button>
+            {imageId && (<img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"+imageId}></img>)}
+            
             </div>
     </div>
   )
