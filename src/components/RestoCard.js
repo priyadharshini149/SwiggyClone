@@ -5,8 +5,14 @@ import { faStar } from "@fortawesome/free-regular-svg-icons";
 
 const RestoCard = (props) => {
   const { resData } = props;
-  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } =
+  
+  const {  name, cuisines, avgRating, costForTwo } =
     resData?.info;
+    {
+      resData?.info?.cloudinaryImageId &&(
+        {cloudinaryImageId}=resData?.info
+      )
+    }
   const { deliveryTime } = resData.info.sla;
   {
     resData.info.aggregatedDiscountInfoV3 && (
@@ -30,7 +36,7 @@ const RestoCard = (props) => {
   return (
     <div className="resto-card">
       <div className="layer">
-        { header && subHeader&&<h4>{header} {subHeader}</h4>}
+        { header && subHeader && (<h4>{header} {subHeader}</h4>)}
         </div>
       <img
         src={CDN_URL + cloudinaryImageId}
