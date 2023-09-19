@@ -7,6 +7,7 @@ import About from "./components/About";
 import ErrorPage from "./components/ErrorPage";
 import Contact from "./components/Contact";
 import RestoMenu from "./components/RestoMenu";
+import CollectionMenu from "./components/CollectionMenu";
 
 //##################################################################################################################
 
@@ -58,7 +59,16 @@ const appRouter=createBrowserRouter([
             {
                 path:"/restaurants/:id",
                 element:<RestoMenu/>
-            }
+            },
+            {
+                path:"/collection/:id/:title",
+                element:<CollectionMenu/>
+            },
+            {
+                path:"/collection/:id/:title/restaurants/:id",
+                element:<RestoMenu/>
+            },
+
         ]
     }
 ]);
