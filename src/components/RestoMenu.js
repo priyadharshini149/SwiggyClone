@@ -14,7 +14,7 @@ const RestoMenu = () => {
     
     const [categoryCollapse,setCatCollapse]=useState({});
     const [subCategoryCollapse,setSubCatCollapse]=useState({});
-
+    console.log(categoryCollapse,subCategoryCollapse)
     useEffect(()=>{
         fetchData();
     },[]);
@@ -40,16 +40,17 @@ const RestoMenu = () => {
     console.log(cards);
    
     const toggleCatCollapse=(categoryId)=>{
+        console.log(categoryId)
         setCatCollapse((prevState)=>({
             ...prevState,
-            [categoryId]:!prevState[categoryId] 
+            [categoryId]:!prevState[categoryId]
         }))
     }
 
     const toggleSubCatCollapse=(categoryId)=>{
         setSubCatCollapse((prevState)=>({
             ...prevState,
-            [categoryId]:!prevState[categoryId]
+            [categoryId]:!prevState[categoryId] 
         }))
     }
     return(
@@ -91,8 +92,7 @@ const RestoMenu = () => {
                                                      <FontAwesomeIcon icon={faAngleDown} style={{color:"gray"}}/>
                                         </div>)
                                                 }
-
-                                      <Collapse isOpened={categoryCollapse[index]} className="collapse">
+                                      <Collapse isOpened={categoryCollapse[index]===undefined?setCatCollapse((prevState)=>({...prevState,[index]:true})):categoryCollapse[index]} className="collapse">
                                       <div className="cat-body">
                                         {cat.card.card.itemCards && 
                                         (
@@ -116,7 +116,7 @@ const RestoMenu = () => {
                                                         <FontAwesomeIcon icon={faAngleDown} style={{color:"gray"}}/>
                                                         </div>
     
-                                                        <Collapse isOpened={subCategoryCollapse[index]} className="collapse">
+                                                        <Collapse isOpened={subCategoryCollapse[index]===undefined?setSubCatCollapse((prevState)=>({...prevState,[index]:true})):subCategoryCollapse[index]} className="collapse">
                                                         <div className="subCat-body">
                                                         {
                                                             item.itemCards.map((it,index)=>(
