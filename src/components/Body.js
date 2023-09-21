@@ -128,6 +128,7 @@ const Body = () => {
 
           {/* filter */}
           <div className="filter">
+          
             <div>
               <button
                 onClick={() => {
@@ -137,6 +138,19 @@ const Body = () => {
                 {" "}
                 All restaurants
               </button>
+            </div>
+            <div>
+              <button
+                onClick={() => {
+                    const filterlist = listOfResto.filter(
+                        (res)=>res.info.veg===true
+                    );
+                  setFilterResto(filterlist)
+                }}
+              >
+                Pure Veg
+              </button>
+             
             </div>
             <div>
               <button
@@ -163,6 +177,7 @@ const Body = () => {
               </button>
              
             </div>
+           
             <div>
             <button
               onClick={()=>{
