@@ -30,8 +30,6 @@
   padding: 10px;
   margin: 5px 25px;
   font-size: 17px;
-  
- 
 }
 .header-link {
   color: rgb(108, 108, 108);
@@ -89,6 +87,7 @@
 .filter {
   display: flex;
   margin-top: 20px;
+  overflow: scroll;
 }
 .filter h4 {
   color: rgb(77, 77, 77);

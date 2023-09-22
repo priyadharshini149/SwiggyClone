@@ -135,7 +135,6 @@ const Body = () => {
                   fetchData();
                 }}
               >
-                {" "}
                 All restaurants
               </button>
             </div>
