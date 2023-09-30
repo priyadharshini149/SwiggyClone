@@ -6,7 +6,7 @@ import { faAngleDown,faClock,faStar } from '@fortawesome/free-solid-svg-icons';
 import {Collapse} from 'react-collapse';
 import { useParams } from 'react-router-dom';
 import useRestoMenu from "../utils/useRestoMenu";
-
+import Offline from "./offline";
 
 const RestoMenu = () => {
     const {id}=useParams();
@@ -39,6 +39,14 @@ const RestoMenu = () => {
             ...prevState,
             [categoryId]:!prevState[categoryId] 
         }))
+    }
+
+    const onlineStatus=useOnlineStatus();
+    if(onlineStatus===false)
+    {
+        return(
+            <Offline/>
+          )
     }
     return(
         <div className="resInfo-container">

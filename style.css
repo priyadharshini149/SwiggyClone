@@ -457,6 +457,21 @@ hr {
   text-decoration: none;
 }
 
+.online {
+  text-align: center;
+  margin-top: 100px;
+}
+.online h3{
+  font-size: 30px;
+  color:rgb(61, 61, 61);
+  font-family: sans-serif;
+}
+.online img{
+  width:500px;
+  height: 350px;
+  margin-bottom: 30px;
+}
+
 /* Shimmer */
 .shimmer {
   margin: auto;

@@ -4,6 +4,8 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { CDN_URL } from "../utils/constants";
 import useRestaurant from "../utils/useRestaurant";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import Offline from "./offline";
 
 const Body = () => {
 
@@ -34,13 +36,18 @@ const Body = () => {
     }
   }
  
-
-  console.log(listOfResto);
   //conditional rendering
   // if(listOfResto.length===0)
   // {
   //     return <Shimmer/>
   // }
+  const onlineStatus=useOnlineStatus();
+  if(onlineStatus===false)
+  {
+    return(
+      <Offline/>
+    )
+  }
   return listOfResto.length === 0 ? (
     <Shimmer />
   ) : (

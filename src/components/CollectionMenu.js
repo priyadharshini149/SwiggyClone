@@ -2,9 +2,12 @@ import { useParams } from "react-router-dom";
 import RestoCard from "./RestoCard";
 import { Link } from "react-router-dom";
 import useCollectionMenu from "../utils/useCollectionMenu";
+import Offline from "./offline";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const CollectionMenu = () => {
   const { id, title } = useParams();
 
+  
   const use=useCollectionMenu({id,title});
 
   const collectionCard =use.collectionCard;
@@ -16,7 +19,13 @@ const CollectionMenu = () => {
   {
     return parseFloat(str.split(' ')[0].slice(1))
   }
-
+  const onlineStatus=useOnlineStatus();
+  if(onlineStatus===false)
+  {
+    return(
+      <Offline/>
+    )
+  }
   return (
     <div className="collection-page">
       <div className="collection-header">
