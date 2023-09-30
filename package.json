@@ -2,7 +2,7 @@
   "name": "namaste-dev",
   "version": "1.0.0",
   "description": "this is react namaste course notes",
-  "main": "App.js",
+  "main": "index.html",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
