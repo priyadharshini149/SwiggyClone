@@ -1,36 +1,22 @@
-import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RestoCard from "./RestoCard";
 import { Link } from "react-router-dom";
+import useCollectionMenu from "../utils/useCollectionMenu";
 const CollectionMenu = () => {
   const { id, title } = useParams();
-  const [collectionCard, setCollectionCard] = useState([]);
-  const [collectionFilterCard,setcollectionFilter]=useState([]);
-  const [collectionTitle,setCollectionTitle]=useState([]);
-  const [collectionDesc,setCollectionDesc]=useState([]);
-  console.log(id, title);
-  useEffect(() => {
-    fetchData();
-  }, []);
+
+  const use=useCollectionMenu({id,title});
+
+  const collectionCard =use.collectionCard;
+  const collectionFilterCard=use.collectionFilterCard;
+  const collectionTitle=use.collectionTitle;
+  const collectionDesc=use.collectionDesc;
+
   function costConvert(str)
   {
     return parseFloat(str.split(' ')[0].slice(1))
   }
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.0394444&lng=77.0401709&collection=" +
-        id +
-        "&tags=layout_CCS_" +
-        title +
-        "&type=rcv2"
-    );
-    const json = await data.json();
-    console.log(json)
-    setCollectionTitle(json.data.cards[0].card.card.title)
-    setCollectionDesc(json.data.cards[0].card.card.description)
-    setCollectionCard(json.data.cards.slice(3));
-    setcollectionFilter(json.data.cards.slice(3));
-  };
+
   return (
     <div className="collection-page">
       <div className="collection-header">

@@ -1,31 +1,18 @@
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import Shimmer from "./Shimmer";
 import ItemCard from "./ItemCard";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown,faClock,faStar } from '@fortawesome/free-solid-svg-icons';
 import {Collapse} from 'react-collapse';
 import { useParams } from 'react-router-dom';
-import { API_URL } from "../utils/constants";
+import useRestoMenu from "../utils/useRestoMenu";
+
 
 const RestoMenu = () => {
     const {id}=useParams();
-    console.log(id);
-    const [resInfo,setResInfo]=useState(null);
-    
     const [categoryCollapse,setCatCollapse]=useState({});
     const [subCategoryCollapse,setSubCatCollapse]=useState({});
-    console.log(categoryCollapse,subCategoryCollapse)
-    useEffect(()=>{
-        fetchData();
-    },[]);
-    
-    const fetchData= async() => {
-         const data= await fetch(API_URL+id);
-         const json=await data.json();
-         console.log(json.data.cards[0]?.card?.card?.info?.name);
-         setResInfo(json.data);
-        }
-        console.log(resInfo);
+    const resInfo=useRestoMenu(id);
 
     if(resInfo===null)
     {

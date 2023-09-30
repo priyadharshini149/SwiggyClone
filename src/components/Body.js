@@ -1,19 +1,21 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import RestoCard from "./RestoCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { CDN_URL } from "../utils/constants";
+import useRestaurant from "../utils/useRestaurant";
 
 const Body = () => {
-  const [listOfResto, setListofResto] = useState([]);
-  const [filterResto, setFilterResto] = useState([]);
+
   const [searchText, setSearchText] = useState("");
-  const [offerBanner, setofferBanner] = useState(null);
-  const [collection, setCollection] = useState([]);
-  useEffect(() => {
-    fetchData();
-  },
-  []);
+
+  const use=useRestaurant();
+
+  const listOfResto=use.listOfResto;
+  const filterResto=use.filterResto;
+  const offerBanner=use.offerBanner;
+  const collection=use.collection;
+ 
   function costConvert(str)
   {
     return parseFloat(str.split(' ')[0].slice(1))
@@ -31,24 +33,7 @@ const Body = () => {
       return null;
     }
   }
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.0261194&lng=77.0191128&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    console.log("json:", json);
-    setListofResto(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilterResto(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setofferBanner(
-      json?.data.cards[0]?.card.card.gridElements?.infoWithStyle?.info
-    );
-    setCollection(json?.data?.cards[1]?.card?.card.imageGridCards.info);
-    console.log("filter:", filterResto);
-  };
+ 
 
   console.log(listOfResto);
   //conditional rendering
