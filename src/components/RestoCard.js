@@ -6,20 +6,18 @@ import { faStar } from "@fortawesome/free-regular-svg-icons";
 const RestoCard = (props) => {
   const { resData } = props;
   console.log(props);
-  
-  const {  name, cuisines, avgRating, costForTwo } =
-    resData?.info;
-    {
-      resData?.info?.cloudinaryImageId &&(
-        {cloudinaryImageId}=resData?.info
-      )
-    }
+  let header,subHeader;
+  const {  name, cuisines, avgRating,cloudinaryImageId} =resData?.info;
+
   const { deliveryTime } = resData.info.sla;
+  if(resData.info.aggregatedDiscountInfoV3) 
   {
-    resData.info.aggregatedDiscountInfoV3 && (
-      {header,subHeader}=resData.info.aggregatedDiscountInfoV3
-    )
+    header=resData.info.aggregatedDiscountInfoV3.header;
+    subHeader=resData.info.aggregatedDiscountInfoV3.subHeader;
   }
+     
+    
+  
 
 
   const [rateColor, setrateColor] = useState("green");
