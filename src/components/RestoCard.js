@@ -5,6 +5,7 @@ import { faStar } from "@fortawesome/free-regular-svg-icons";
 
 const RestoCard = (props) => {
   const { resData } = props;
+  console.log(props);
   
   const {  name, cuisines, avgRating, costForTwo } =
     resData?.info;
