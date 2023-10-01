@@ -14,7 +14,13 @@ const RestoMenu = () => {
     const [categoryCollapse,setCatCollapse]=useState({});
     const [subCategoryCollapse,setSubCatCollapse]=useState({});
     const resInfo=useRestoMenu(id);
-
+    const onlineStatus=useOnlineStatus();
+    if(onlineStatus===false)
+    {
+        return(
+            <Offline/>
+          )
+    }
     if(resInfo===null)
     {
         return(
@@ -42,13 +48,7 @@ const RestoMenu = () => {
         }))
     }
 
-    const onlineStatus=useOnlineStatus();
-    if(onlineStatus===false)
-    {
-        return(
-            <Offline/>
-          )
-    }
+   
     return(
         <div className="resInfo-container">
             
