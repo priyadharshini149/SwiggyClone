@@ -3,7 +3,6 @@ import { useState,useEffect } from "react";
 
 const useCollectionMenu = ({id,title}) => {
     const [collectionCard, setCollectionCard] = useState([]);
-    const [collectionFilterCard,setcollectionFilter]=useState([]);
     const [collectionTitle,setCollectionTitle]=useState([]);
     const [collectionDesc,setCollectionDesc]=useState([]);
     useEffect(() => {
@@ -21,10 +20,9 @@ const useCollectionMenu = ({id,title}) => {
         setCollectionTitle(json.data.cards[0].card.card.title)
         setCollectionDesc(json.data.cards[0].card.card.description)
         setCollectionCard(json.data.cards.slice(3));
-        setcollectionFilter(json.data.cards.slice(3));
       };
 
-      return {collectionCard,collectionDesc,collectionFilterCard,collectionTitle}
+      return {collectionCard,collectionDesc,collectionTitle}
 }
 
 export default useCollectionMenu

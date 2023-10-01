@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import RestoCard from "./RestoCard";
 import { Link } from "react-router-dom";
 import useCollectionMenu from "../utils/useCollectionMenu";
@@ -11,10 +12,13 @@ const CollectionMenu = () => {
   const use=useCollectionMenu({id,title});
 
   const collectionCard =use.collectionCard;
-  const collectionFilterCard=use.collectionFilterCard;
+  const [collectionFilterCard,setcollectionFilter]=useState([]);
   const collectionTitle=use.collectionTitle;
   const collectionDesc=use.collectionDesc;
 
+  useEffect(()=>{
+    setcollectionFilter(collectionCard)
+  },[collectionCard])
   function costConvert(str)
   {
     return parseFloat(str.split(' ')[0].slice(1))
@@ -34,7 +38,7 @@ const CollectionMenu = () => {
     <div className="filter">
           <div>
           <button  onClick={()=>{
-            fetchData()
+            setcollectionFilter(collectionCard)
           }}>
             All restaurant
           </button>

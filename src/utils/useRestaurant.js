@@ -3,7 +3,6 @@ import { RESTO_URL } from "./constants";
 
 const useRestaurant = () => {
     const [listOfResto, setListofResto] = useState([]);
-    const [filterResto, setFilterResto] = useState([]);
     const [offerBanner, setofferBanner] = useState(null);
     const [collection, setCollection] = useState([]);
 
@@ -19,17 +18,13 @@ const useRestaurant = () => {
         setListofResto(
           json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
         );
-        setFilterResto(
-          json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-        );
         setofferBanner(
           json?.data.cards[0]?.card.card.gridElements?.infoWithStyle?.info
         );
         setCollection(json?.data?.cards[1]?.card?.card.imageGridCards.info);
-        console.log("filter:", filterResto);
       };
 
-      return {listOfResto,filterResto,offerBanner,collection}
+      return {listOfResto,offerBanner,collection}
 }
 
 export default useRestaurant

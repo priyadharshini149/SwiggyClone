@@ -1,4 +1,4 @@
-import {useState } from "react";
+import {useEffect, useState } from "react";
 import RestoCard from "./RestoCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -12,12 +12,14 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   const use=useRestaurant();
-
   const listOfResto=use.listOfResto;
-  const filterResto=use.filterResto;
+  const [filterResto, setFilterResto] = useState([]);
   const offerBanner=use.offerBanner;
   const collection=use.collection;
- 
+  console.log(listOfResto,filterResto)
+  useEffect(()=>{
+    setFilterResto(listOfResto)
+  },[listOfResto])
   function costConvert(str)
   {
     return parseFloat(str.split(' ')[0].slice(1))
@@ -48,7 +50,7 @@ const Body = () => {
       <Offline/>
     )
   }
-  return listOfResto.length === 0 ? (
+  return listOfResto.length===0? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -124,7 +126,7 @@ const Body = () => {
             <div>
               <button
                 onClick={() => {
-                  fetchData();
+                  setFilterResto(listOfResto);
                 }}
               >
                 All restaurants
