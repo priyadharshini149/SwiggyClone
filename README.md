@@ -1,5 +1,6 @@
 ## Swiggy Clone
 
+- live app: https://swiggyyy.netlify.app/
 ### Home Page
 ![Alt text](image.png)
 ![Alt text](image-1.png)
