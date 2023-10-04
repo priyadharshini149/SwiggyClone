@@ -1,9 +1,18 @@
 import React from 'react'
 import { ITEM_IMG } from '../utils/constants'
+import { useDispatch } from 'react-redux'
+import { addItem } from '../utils/cartSlice'
 
 const ItemCard = (props) => {
     const {data}=props
     const {name,price,description,imageId}=data
+   
+    const dispatch=useDispatch();
+    const handleAddItem=(data)=>{
+      console.log(data)
+      dispatch(addItem(data))
+    }
+  
   return (
     <div className='item-card'>
             <div className='item-details'>
@@ -12,7 +21,7 @@ const ItemCard = (props) => {
             <h4>{description}</h4>
             </div>
             <div className='item-img'>
-            <button className='item-button'>ADD</button>
+            <button className='item-button' onClick={()=>handleAddItem(data)}>ADD</button>
             {imageId && (<img src={ITEM_IMG+imageId}></img>)}
             
             </div>

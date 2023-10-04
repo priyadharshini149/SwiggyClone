@@ -8,6 +8,9 @@ import ErrorPage from "./components/ErrorPage";
 import Contact from "./components/Contact";
 import RestoMenu from "./components/RestoMenu";
 import CollectionMenu from "./components/CollectionMenu";
+import appStore from "./utils/appStore";
+import { Provider } from "react-redux";
+import Cart from "./components/Cart";
 
 //##################################################################################################################
 
@@ -30,10 +33,12 @@ food ordering app
 
 const App = () => {
     return(
+        <Provider store={appStore}>
         <div className="app">
             <Header/>
             <Outlet/>
         </div>
+        </Provider>
     );
 };
 
@@ -49,8 +54,8 @@ const appRouter=createBrowserRouter([
                 element:<Body/>
             },
             {
-                path:"/about",
-                element:<About/>
+                path:"/cart",
+                element:<Cart/>
             },
             {
                 path:"/contact",

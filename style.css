@@ -471,6 +471,20 @@ hr {
   height: 350px;
   margin-bottom: 30px;
 }
+.noCart{
+  padding-top: 50px;
+  color: rgb(73, 73, 73);
+  text-align: center;
+  font-size: 22px;
+  font-family: sans-serif;
+}
+.total{
+  margin: auto;
+  width: 70%;
+  padding-top: 50px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
 
 /* Shimmer */
 .shimmer {
