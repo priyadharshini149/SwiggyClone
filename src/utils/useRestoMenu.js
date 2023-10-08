@@ -8,10 +8,15 @@ const useRestoMenu = (id) => {
     },[]);
     
     const fetchData= async() => {
-         const data= await fetch(RESTOMENU_URL+id);
-         const json=await data.json();
-         console.log(json.data.cards[0]?.card?.card?.info?.name);
-         setResInfo(json.data);
+        try{
+           
+            const data= await fetch(RESTOMENU_URL+id);
+            const json=await data.json();
+            console.log(json.data.cards[0]?.card?.card?.info?.name);
+            setResInfo(json.data);
+           }
+           catch (error) {
+            console.error('Error:', error);}
         }
 return resInfo;
 }

@@ -1,4 +1,5 @@
 import { useState,useEffect } from "react";
+import { RESTOCOLLECTION_URL } from "./constants";
 
 
 const useCollectionMenu = ({id,title}) => {
@@ -10,11 +11,7 @@ const useCollectionMenu = ({id,title}) => {
       }, []);
       const fetchData = async () => {
         const data = await fetch(
-          "https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.0394444&lng=77.0401709&collection=" +
-            id +
-            "&tags=layout_CCS_" +
-            title +
-            "&type=rcv2"
+          RESTOCOLLECTION_URL+"?id="+id+"&title="+title
         );
         const json = await data.json();
         setCollectionTitle(json.data.cards[0].card.card.title)

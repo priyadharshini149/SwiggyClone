@@ -3,9 +3,7 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
-import About from "./components/About";
 import ErrorPage from "./components/ErrorPage";
-import Contact from "./components/Contact";
 import RestoMenu from "./components/RestoMenu";
 import CollectionMenu from "./components/CollectionMenu";
 import appStore from "./utils/appStore";
@@ -56,10 +54,6 @@ const appRouter=createBrowserRouter([
             {
                 path:"/cart",
                 element:<Cart/>
-            },
-            {
-                path:"/contact",
-                element:<Contact/>
             },
             {
                 path:"/restaurants/:id",
