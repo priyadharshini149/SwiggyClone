@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "this is react namaste course notes",
   "scripts": {
-    "start": "concurrently \" npm run server\" \" npm run client\" ",
+    "dev": "concurrently \" npm run server\" \" npm run client\" ",
     "client": "parcel index.html",
     "server": "node server.js",
     "build": "parcel build index.html",
