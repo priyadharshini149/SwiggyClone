@@ -1,14 +1,19 @@
 const express = require("express");
+const serverless = require("serverless-http");
 const cors = require("cors");
 const fetch = require("cross-fetch");
 
 const app = express();
 app.use(cors({origin: '*'}));
+const router = express.Router();
 
 const SWIGGY_API_URL = "https://www.swiggy.com/dapi";
 
+router.get('/',(req,res)=>{
+  res.send('app is running')
+})
 
-app.get('/api/restaurants', (req, res) => {
+router.get('/restaurants', (req, res) => {
   console.log("request recieved");
   const url = `${SWIGGY_API_URL}/restaurants/list/v5?lat=11.0261194&lng=77.0191128&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
 
@@ -37,7 +42,7 @@ app.get('/api/restaurants', (req, res) => {
 });
 
 
-app.get('/api/restoMenu', (req, res) => {
+router.get('/restoMenu', (req, res) => {
   console.log("request recieved :menu");
   console.log(req.query);
   const {id}=req.query;
@@ -66,7 +71,7 @@ app.get('/api/restoMenu', (req, res) => {
       res.status(500).send('An error occurred');
     });
 });
-app.get('/api/restoCollection', (req, res) => {
+router.get('/restoCollection', (req, res) => {
   console.log("request recieved :menu");
   console.log(req.query);
   const {id ,title}=req.query;
@@ -95,7 +100,9 @@ app.get('/api/restoCollection', (req, res) => {
       res.status(500).send('An error occurred');
     });
 });
-const PORT = 5000; 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
+app.use(`/api/`, router);
+
+
+module.exports = app;
+module.exports.handler = serverless(app);
