@@ -63945,9 +63945,9 @@ parcelHelpers.export(exports, "RESTO_URL", ()=>RESTO_URL);
 parcelHelpers.export(exports, "RESTOCOLLECTION_URL", ()=>RESTOCOLLECTION_URL);
 parcelHelpers.export(exports, "ITEM_IMG", ()=>ITEM_IMG);
 const CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
-const RESTOMENU_URL = "http://localhost:5000/api/restoMenu?id=";
-const RESTO_URL = "http://localhost:5000/api/restaurants";
-const RESTOCOLLECTION_URL = "http://localhost:5000/api/restoCollection";
+const RESTOMENU_URL = "http://localhost:9000/.netlify/functions/api/restoMenu?id=";
+const RESTO_URL = "http://localhost:9000/.netlify/functions/api/restaurants";
+const RESTOCOLLECTION_URL = "http://localhost:9000/.netlify/functions/api/restoCollection";
 const ITEM_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g6ZGj":[function(require,module,exports) {
