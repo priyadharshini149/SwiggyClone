@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/image/logo .png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faCartShopping, faPercent,faBars} from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCartShopping, faPercent,faBars,faXmark} from '@fortawesome/free-solid-svg-icons';
 import { faLifeRing, faUser } from "@fortawesome/free-regular-svg-icons";
 import { useSelector } from "react-redux";
 const Header = () =>{
@@ -20,7 +20,7 @@ const Header = () =>{
             <Link to=" " className="header-link"><img src={logo} className="logo"></img></Link>
             </div>
             <div className="menu-icon" onClick={handleShowNav}>
-            <FontAwesomeIcon icon={faBars} className="menu-bar" /> 
+            <FontAwesomeIcon icon={!showNavbar?faBars:faXmark} className="menu-bar" /> 
             </div>
             <div className={`nav-items ${showNavbar && 'active'}`}>
                 <ul>
