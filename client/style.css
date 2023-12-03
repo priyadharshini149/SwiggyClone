@@ -175,7 +175,7 @@
   color: gray;
   font-size: 14px;
   line-height: 20px;
-  font-weight: 200;
+  font-weight: 600;
   max-width: 90%;
 }
 
@@ -217,7 +217,7 @@
   color: gray;
   font-size: 14px;
   letter-spacing: 2px;
-  font-weight: lighter;
+  font-weight: 600;
 }
 .card-review span {
   background-color: rgb(39, 125, 39);
@@ -258,7 +258,7 @@
   font-family: sans-serif;
 }
 .resInfo-header h3 {
-  font-weight: lighter;
+  font-weight: 600;
   margin: 0.5rem 0rem;
   color: rgb(164, 164, 164);
   font-size: 13px;
@@ -383,7 +383,7 @@ hr {
 }
 .item-details h4 {
   color: rgb(137, 137, 137);
-  font-weight: 100;
+  font-weight: 600;
   margin: 0.5rem 0rem;
   font-size: 13px;
   letter-spacing: 0.5px;
