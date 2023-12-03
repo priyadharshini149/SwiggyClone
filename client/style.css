@@ -382,9 +382,9 @@ hr {
   width: 80%;
 }
 .item-details h4 {
-  color: rgb(137, 137, 137);
+  color: rgb(164, 164, 164);
   font-weight: 600;
-  margin: 0.5rem 0rem;
+  margin: 0.5rem 1.5rem 0 0rem;
   font-size: 13px;
   letter-spacing: 0.5px;
   line-height: 20px;
