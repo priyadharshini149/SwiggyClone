@@ -19,7 +19,10 @@ const Cart = () => {
     );
  }
   return (
-    <div style={{marginTop:"50px"}}>
+    <div className="cart">
+      <h1>Cart Details</h1>
+      <div className='cart-details'>
+
       {
         cartItem.map((item,index)=>(
             <div key={index} style={{margin:"auto",width:"70%"}}>
@@ -46,6 +49,7 @@ const Cart = () => {
             cartItem.reduce((total,item)=>total+item.price/100,0)
            }
         </span>
+      </div>
       </div>
            
     </div>
