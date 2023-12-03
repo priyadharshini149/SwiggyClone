@@ -155,8 +155,8 @@
   width: 280px;
   background-color: rgb(253, 253, 253);
   border-radius: 10px;
-  margin: 0.5rem;
-  padding: 0.5rem;
+  margin: 3rem 1rem 0 0rem;
+  /* padding: 1rem 0 0 0; */
   font-family: sans-serif;
   transition: all 0.25s ease-in-out;
   color: rgb(41, 41, 41);
@@ -172,7 +172,7 @@
 }
 .resto-card > h4 {
   padding: 10px 0px 0px 0px;
-  color: gray;
+  color: rgb(146, 146, 146);
   font-size: 14px;
   line-height: 20px;
   font-weight: 600;
