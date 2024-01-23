@@ -16,6 +16,7 @@ const Body = () => {
   const [filterResto, setFilterResto] = useState([]);
   const offerBanner=use.offerBanner;
   const collection=use.collection;
+  const topResto=use.topResto;
   console.log(listOfResto,filterResto)
   useEffect(()=>{
     setFilterResto(listOfResto)
@@ -54,17 +55,27 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
+
       {/* offer banner */}
-      <div className="offer-container">
-        <h1>Best offers for you</h1>
-        <div className="Offer-banner">
-          {offerBanner.map((offer, index) => (
-            <div key={index}>
-              <img className="offer" src={CDN_URL + offer.imageId}></img>
-            </div>
-          ))}
-        </div>
-      </div>
+
+        {
+          offerBanner &&
+          <div className="offer-container">
+            (
+          <h1>Best offers for you</h1>
+          <div className="Offer-banner">
+            {offerBanner.map((offer, index) => (
+              <div key={index}>
+                <img className="offer" src={CDN_URL + offer.imageId}></img>
+              </div>
+            ))}
+          </div>
+            )
+          </div>
+        }
+
+
+      {/* collection container */}
       <div className="collection-container">
         <h1>What's on your mind?</h1>
         <div className="collection">
@@ -84,7 +95,34 @@ const Body = () => {
           ))}
         </div>
       </div>
+
+<hr></hr>
+
+      {/* Top resto */}
+
+      {
+          topResto && 
+          <div className="topResto-container">
+           
+            <h1>Top restaurant chains in Coimbatore</h1>
+            <div className="topResto">
+              {
+                topResto.map((top)=>(
+                  <Link
+                  key={top.info.id}
+                  to={"restaurants/" + top.info.id}
+                   >
+                 <RestoCard resData={top} />
+            </Link>
+                ))
+              }
+
+            </div>
+          </div>
+        }
+
       <hr></hr>
+
       <div className="restaurants">
         <div className="rest-head">
           <h1> Restaurants with online food delivery</h1>

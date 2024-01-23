@@ -406,7 +406,7 @@ hr {
   padding: 1rem 0rem;
   font-size: 24px;
   font-family: sans-serif;
-  font-weight: 800px;
+  font-weight: 900px;
   color: rgb(27, 27, 27);
 }
 .Offer-banner {
@@ -424,17 +424,39 @@ hr {
   min-width: 90px;
 }
 
-/* Collection home */
-.collection-container {
+/* top resto */
+
+.topResto-container {
   margin: auto;
   justify-content: center;
   padding-top: 40px;
   width: 80%;
 }
+.topResto-container h1 {
+  font-size: 24px;
+  font-family: sans-serif;
+  font-weight: 900px;
+  color: rgb(27, 27, 27);
+}
+.topResto {
+  position:relative;
+  display: flex;
+  overflow: scroll;
+  margin: auto;
+}
+
+
+/* Collection home */
+.collection-container {
+  margin: auto;
+  justify-content: center;
+  padding-top: 20px;
+  width: 80%;
+}
 .collection-container h1 {
   font-size: 24px;
   font-family: sans-serif;
-  font-weight: 800px;
+  font-weight: 900px;
   color: rgb(27, 27, 27);
 }
 .collection {

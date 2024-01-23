@@ -4,6 +4,7 @@ import { RESTO_URL } from "./constants";
 const useRestaurant = () => {
     const [listOfResto, setListofResto] = useState([]);
     const [offerBanner, setofferBanner] = useState(null);
+    const [topResto,setTopResto]=useState([]);
     const [collection, setCollection] = useState([]);
 
     useEffect(() => {
@@ -18,19 +19,24 @@ const useRestaurant = () => {
           const json = await data.json();
           console.log("json:", json);
           setListofResto(
-            json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+            json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
           );
-          setofferBanner(
-            json?.data.cards[0]?.card.card.gridElements?.infoWithStyle?.info
+          setTopResto(
+            json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
           );
-          setCollection(json?.data?.cards[1]?.card?.card.imageGridCards.info);
+          // setofferBanner(
+          //   json?.data.cards[0]?.card.card.gridElements?.infoWithStyle?.info
+          // );
+          setCollection(json?.data?.cards[0]?.card?.card.imageGridCards.info);
         }
         catch (error) {
           console.error('Error:', error);
         }
       };
 
-      return {listOfResto,offerBanner,collection}
+      console.log("listofresto",listOfResto)
+
+      return {listOfResto,topResto,offerBanner,collection}
 }
 
 export default useRestaurant
