@@ -632,6 +632,10 @@ hr {
   .collection-container{
     width: 100%;
   }
+  .topResto-container{
+    width: 98%;
+    padding-top: 20px;
+  }
   .rest-head
   {
     width: 100%;
